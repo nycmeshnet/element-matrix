@@ -43,5 +43,5 @@ jobs:
             --namespace "ess" \
             --create-namespace  \
             ess oci://ghcr.io/element-hq/ess-helm/matrix-stack \
-            -f ~/ess-config-values/hostnames.yaml \
+            -f ./ess-config-values/hostnames.yaml \
             --wait
