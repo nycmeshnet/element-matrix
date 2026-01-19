@@ -1,0 +1,1 @@
+ESS Community Edition deployment on the [Mesh Kubernetes cluster](https://github.com/nycmeshnet/k8s-infra) using the provided [helm chart instructions](https://github.com/element-hq/ess-helm/tree/main?tab=readme-ov-file#installation).
