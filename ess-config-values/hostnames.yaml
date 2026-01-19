@@ -1,0 +1,21 @@
+# Copyright 2024-2025 New Vector Ltd
+# Copyright 2025 Element Creations Ltd
+#
+# SPDX-License-Identifier: AGPL-3.0-only
+
+elementAdmin:
+  ingress:
+    host: admin.matrix.nycmesh.net
+elementWeb:
+  ingress:
+    host: chat.matrix.nycmesh.net
+matrixAuthenticationService:
+  ingress:
+    host: account.matrix.nycmesh.net
+matrixRTC:
+  ingress:
+    host: mrtc.matrix.nycmesh.net
+serverName: matrix.nycmesh.net
+synapse:
+  ingress:
+    host: synapse.matrix.nycmesh.net
