@@ -1,0 +1,5 @@
+haproxy:
+  service:
+    type: NodePort
+    nodePorts:
+      http: 31845
