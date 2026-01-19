@@ -38,7 +38,10 @@ jobs:
           scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_TARGET_IP }}:~/.kube/config ./
           helm upgrade \
             --install \
+            --kubeconfig ./config \
+            --kube-apiserver https://${{ secrets.SSH_TARGET_IP }}:6443 \
             --namespace "ess" \
+            --create-namespace  \
             ess oci://ghcr.io/element-hq/ess-helm/matrix-stack \
             -f ~/ess-config-values/hostnames.yaml \
             --wait
