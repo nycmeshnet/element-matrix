@@ -26,10 +26,12 @@ jobs:
           if_key_exists: fail # replace / ignore / fail; optional (defaults to fail)
       
       - name: Setup WireGuard
-        uses: nycmeshnet/vpn-infra/.github/actions/vpn-action@8f96b22217ac6b41d5682121aa01e6f712335a7c
+        uses: nycmeshnet/vpn-infra-action@main
         with:
           config-name: "ghelement"
           private-key: ${{ secrets.WG_PRIVATE_KEY }}
+          server-preference: "3,10,11"
+          test-ip: "10.10.10.10"
           
       - name: Install Helm Chart
         run: |
