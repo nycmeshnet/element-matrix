@@ -33,16 +33,17 @@ jobs:
           server-preference: "3,10,11"
           test-ip: "10.10.10.10"
 
-      - name: Render MAS SMTP values
+      - name: Render MAS SMTP config
         run: |
           cat <<'EOF' > mas-smtp-values.yaml
           matrixAuthenticationService:
             additional:
-              auth.yaml:
+              auth.yaml: |
                 config:
                   email:
+                    transport: smtp
                     hostname: "${{ secrets.SMTP_HOST }}"
-                    port: "${{ secrets.SMTP_PORT }}"
+                    port: ${{ secrets.SMTP_PORT }}
                     username: "${{ secrets.SMTP_USERNAME }}"
                     password: "${{ secrets.SMTP_PASSWORD }}"
           EOF
