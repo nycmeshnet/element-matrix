@@ -38,16 +38,15 @@ jobs:
           cat <<'EOF' > mas-smtp-values.yaml
           matrixAuthenticationService:
             additional:
-              auth.yaml: |
-                config:
+              auth.yaml:
+                config: |
                   email:
-                    transport: smtp
                     hostname: "${{ secrets.SMTP_HOST }}"
                     port: ${{ secrets.SMTP_PORT }}
                     username: "${{ secrets.SMTP_USERNAME }}"
                     password: "${{ secrets.SMTP_PASSWORD }}"
           EOF
-          
+
       - name: Install Helm Chart
         run: |
           scp ${{ secrets.SSH_USER }}@${{ secrets.SSH_TARGET_IP }}:~/.kube/config ./
