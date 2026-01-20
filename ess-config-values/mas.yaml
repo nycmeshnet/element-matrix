@@ -20,4 +20,3 @@ matrixAuthenticationService:
           from: '"Matrix Authentication Service" <mastodon@nycmesh.net>'
           reply_to: '"No reply" <no-reply@matrix.nycmesh.net>'
           transport: smtp
-          mode: tls
