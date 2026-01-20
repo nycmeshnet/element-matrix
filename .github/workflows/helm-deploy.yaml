@@ -46,8 +46,8 @@ jobs:
             -f ./ess-config-values/hostnames.yaml \
             -f ./ess-config-values/tls.yaml \
             -f ./ess-config-values/mas.yaml \
-            --set-string matrixAuthenticationService.additional.auth\\.yaml.config.email.hostname="${{ secrets.SMTP_HOST }}" \
-            --set-string matrixAuthenticationService.additional.auth\\.yaml.config.email.port="${{ secrets.SMTP_PORT }}" \
-            --set-string matrixAuthenticationService.additional.auth\\.yaml.config.email.username="${{ secrets.SMTP_USERNAME }}" \
-            --set-string matrixAuthenticationService.additional.auth\\.yaml.config.email.password="${{ secrets.SMTP_PASSWORD }}" \
+            --set-string matrixAuthenticationService.additional."auth.yaml".config.email.hostname="${{ secrets.SMTP_HOST }}" \
+            --set-string matrixAuthenticationService.additional."auth.yaml".config.email.port="${{ secrets.SMTP_PORT }}" \
+            --set-string matrixAuthenticationService.additional."auth.yaml".config.email.username="${{ secrets.SMTP_USERNAME }}" \
+            --set-string matrixAuthenticationService.additional."auth.yaml".config.email.password="${{ secrets.SMTP_PASSWORD }}" \
             --wait
