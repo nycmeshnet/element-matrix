@@ -1,0 +1,22 @@
+matrixAuthenticationService:
+  additional:
+    auth.yaml:
+      config: |
+        account:
+          password_registration_enabled: true
+          registration_token_required: false
+          password_registration_email_required: true
+          password_change_allowed: true
+          password_recovery_enabled: true
+          login_with_email_allowed: true
+        policy:
+          data:
+            admin_users:
+              - admin
+            emails:
+              allowed_addresses:
+                suffixes: ["@nycmesh.net"]
+        email:
+          from: '"Matrix Authentication Service" <mastodon@nycmesh.net>'
+          reply_to: '"No reply" <no-reply@matrix.nycmesh.net>'
+          transport: smtp
