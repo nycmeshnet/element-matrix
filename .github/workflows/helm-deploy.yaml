@@ -60,6 +60,7 @@ jobs:
                     from: '"Matrix Authentication Service" <mastodon@nycmesh.net>'
                     reply_to: '"No reply" <no-reply@matrix.nycmesh.net>'
                     transport: smtp
+                    mode: ${{ secrets.SMTP_MODE }}
                     hostname: "${{ secrets.SMTP_HOST }}"
                     port: ${{ secrets.SMTP_PORT }}
                     username: "${{ secrets.SMTP_USERNAME }}"
