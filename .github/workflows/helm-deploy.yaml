@@ -35,12 +35,31 @@ jobs:
 
       - name: Render MAS SMTP config
         run: |
-          cat <<'EOF' > mas-smtp-values.yaml
+          cat <<'EOF' > mas-values.yaml
           matrixAuthenticationService:
             additional:
               auth.yaml:
                 config: |
+                  account:
+                    password_registration_enabled: true
+                    registration_token_required: false
+                    password_registration_email_required: true
+                    password_change_allowed: true
+                    password_recovery_enabled: true
+                    login_with_email_allowed: true
+          
+                  policy:
+                    data:
+                      admin_users:
+                        - admin
+                      emails:
+                        allowed_addresses:
+                          suffixes: ["@nycmesh.net"]
+          
                   email:
+                    from: '"Matrix Authentication Service" <mastodon@nycmesh.net>'
+                    reply_to: '"No reply" <no-reply@matrix.nycmesh.net>'
+                    transport: smtp
                     hostname: "${{ secrets.SMTP_HOST }}"
                     port: ${{ secrets.SMTP_PORT }}
                     username: "${{ secrets.SMTP_USERNAME }}"
@@ -59,6 +78,5 @@ jobs:
             ess oci://ghcr.io/element-hq/ess-helm/matrix-stack \
             -f ./ess-config-values/hostnames.yaml \
             -f ./ess-config-values/tls.yaml \
-            -f ./ess-config-values/mas.yaml \
-            -f mas-smtp-values.yaml \
+            -f mas-values.yaml \
             --wait
